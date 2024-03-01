@@ -1,0 +1,26 @@
+/* .container {
+  padding-bottom: 10px;
+} */
+
+.isOnline {
+  color: green;
+}
+
+.isOffline {
+  color: red;
+}
+
+.list {
+  display: flex;
+}
+
+.item {
+  width: 100px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.nameClass {
+  font-size: 24px;
+  margin-top: 10px;
+}

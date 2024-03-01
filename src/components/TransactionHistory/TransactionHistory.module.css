@@ -1,0 +1,21 @@
+tr:nth-child(even) {
+  background-color: #7e8181;
+}
+
+.table {
+  width: 600px;
+  margin: 0 auto;
+  border: 2px solid black;
+  margin-top: 20px;
+  border-collapse: collapse;
+  font-size: 18px;
+}
+
+.tableTitle {
+  color: white;
+  background-color: black;
+}
+
+.tdClass {
+  border: 1px solid #000000;
+}
