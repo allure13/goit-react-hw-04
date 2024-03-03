@@ -1,0 +1,15 @@
+.header {
+  background-color: #573b3b;
+  height: 30px;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.error {
+  color: red;
+}
