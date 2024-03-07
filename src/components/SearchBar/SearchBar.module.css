@@ -1,6 +1,9 @@
 .header {
   background-color: #573b3b;
   height: 30px;
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
 .form {
   display: flex;

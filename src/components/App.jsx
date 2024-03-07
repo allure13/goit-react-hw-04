@@ -100,9 +100,7 @@ export default function App() {
         )}
       </div>
 
-      {images.length > 0 && !loading && (
-        <button onClick={handleLoadMore}>Load more</button>
-      )}
+      {images.length > 0 && <button onClick={handleLoadMore}>Load more</button>}
 
       {Object.keys(modalContent).length !== 0 && (
         <ImageModal

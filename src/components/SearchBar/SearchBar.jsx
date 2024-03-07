@@ -11,19 +11,21 @@ const searchBarSchema = Yup.object().shape({
 
 export default function SearchBar({ onSearch }) {
   return (
-    <Formik
-      initialValues={{ query: '' }}
-      validationSchema={searchBarSchema}
-      onSubmit={(values, actions) => {
-        onSearch(values.query);
-        actions.resetForm();
-      }}
-    >
-      <Form>
-        <Field name="query" />
-        <ErrorMessage className={css.error} name="query" as="span" />
-        <button type="submit">Search</button>
-      </Form>
-    </Formik>
+    <header className={css.header}>
+      <Formik
+        initialValues={{ query: '' }}
+        validationSchema={searchBarSchema}
+        onSubmit={(values, actions) => {
+          onSearch(values.query);
+          actions.resetForm();
+        }}
+      >
+        <Form>
+          <Field name="query" />
+          <ErrorMessage className={css.error} name="query" as="span" />
+          <button type="submit">Search</button>
+        </Form>
+      </Formik>
+    </header>
   );
 }
