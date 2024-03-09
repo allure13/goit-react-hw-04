@@ -1,6 +1,7 @@
 import css from './SearchBar.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { FiSearch } from 'react-icons/fi';
 
 const searchBarSchema = Yup.object().shape({
   query: Yup.string()
@@ -20,10 +21,20 @@ export default function SearchBar({ onSearch }) {
           actions.resetForm();
         }}
       >
-        <Form>
-          <Field name="query" />
+        <Form className={css.form}>
+          <div className={css.inputWrap}>
+            <Field
+              name="query"
+              className={css.input}
+              placeholder="Search images and photos"
+              autocomplete="off"
+              autofocus
+            />
+            <button type="submit" className={css.btn}>
+              <FiSearch size="16px" />
+            </button>
+          </div>
           <ErrorMessage className={css.error} name="query" as="span" />
-          <button type="submit">Search</button>
         </Form>
       </Formik>
     </header>

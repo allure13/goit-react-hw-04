@@ -6,6 +6,7 @@ import { fetchImg } from '../images-api';
 import toast, { Toaster } from 'react-hot-toast';
 import { ThreeDots } from 'react-loader-spinner';
 import ImageModal from './ImageModal/ImageModal';
+import LoadMoreBtn from './LoadMoreBtn/LoadMoreBtn';
 
 export default function App() {
   const [images, setImages] = useState([]);
@@ -100,7 +101,7 @@ export default function App() {
         )}
       </div>
 
-      {images.length > 0 && <button onClick={handleLoadMore}>Load more</button>}
+      {images.length > 0 && <LoadMoreBtn onClick={handleLoadMore} />}
 
       {Object.keys(modalContent).length !== 0 && (
         <ImageModal

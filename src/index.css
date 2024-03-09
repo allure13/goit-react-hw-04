@@ -1,8 +1,7 @@
 *,
 *::before,
 *::after {
-  -webkit-tap-highlight-color: transparent;
-  scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 body {
