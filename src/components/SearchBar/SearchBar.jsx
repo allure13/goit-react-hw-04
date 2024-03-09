@@ -27,8 +27,8 @@ export default function SearchBar({ onSearch }) {
               name="query"
               className={css.input}
               placeholder="Search images and photos"
-              autocomplete="off"
-              autofocus
+              autoComplete="off"
+              autoFocus
             />
             <button type="submit" className={css.btn}>
               <FiSearch size="16px" />
