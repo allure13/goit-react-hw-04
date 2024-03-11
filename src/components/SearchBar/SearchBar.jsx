@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 
 const searchBarSchema = Yup.object().shape({
   query: Yup.string()
-    .min(3, 'Too short!')
+    .min(1, 'Too short!')
     .max(10, 'Too long!')
     .required('Required!'),
 });
@@ -20,12 +20,11 @@ export default function SearchBar({ onSearch }) {
         initialValues={{ query: '' }}
         validationSchema={searchBarSchema}
         onSubmit={(values, actions) => {
-          try {
-            onSearch(values.query);
-            actions.resetForm();
-          } catch (error) {
-            notify(error.message);
+          if (!values.query.trim()) {
+            return notify('Can not be empty');
           }
+          onSearch(values.query);
+          actions.resetForm();
         }}
       >
         <Form className={css.form}>

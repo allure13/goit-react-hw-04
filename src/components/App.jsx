@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react';
 import ImageGallery from './ImageGallery/ImageGallery';
 import { fetchImg } from '../images-api';
 import toast, { Toaster } from 'react-hot-toast';
-import { ThreeDots } from 'react-loader-spinner';
+
 import ImageModal from './ImageModal/ImageModal';
 import LoadMoreBtn from './LoadMoreBtn/LoadMoreBtn';
+import Loader from './Loader/Loader';
+import ErrorMessage from './ErrorMessage/ErrorMessage';
 
 export default function App() {
   const [images, setImages] = useState([]);
@@ -71,7 +73,7 @@ export default function App() {
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
-      {error && <div>{error}</div>}
+      {error && <ErrorMessage />}
       <Toaster position="bottom-center" />
 
       {images.length > 0 && (
@@ -88,18 +90,7 @@ export default function App() {
           alignItems: 'center',
         }}
       >
-        {loading && (
-          <ThreeDots
-            visible={true}
-            height="80"
-            width="80"
-            color="#4fa94d"
-            radius="9"
-            ariaLabel="three-dots-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-          />
-        )}
+        {loading && <Loader />}
       </div>
 
       {images.length > 0 && <LoadMoreBtn onClick={handleLoadMore} />}
