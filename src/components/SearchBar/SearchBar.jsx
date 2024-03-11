@@ -2,6 +2,7 @@ import css from './SearchBar.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { FiSearch } from 'react-icons/fi';
+import toast from 'react-hot-toast';
 
 const searchBarSchema = Yup.object().shape({
   query: Yup.string()
@@ -11,14 +12,20 @@ const searchBarSchema = Yup.object().shape({
 });
 
 export default function SearchBar({ onSearch }) {
+  const notify = message => toast.error(message);
+
   return (
     <header className={css.header}>
       <Formik
         initialValues={{ query: '' }}
         validationSchema={searchBarSchema}
         onSubmit={(values, actions) => {
-          onSearch(values.query);
-          actions.resetForm();
+          try {
+            onSearch(values.query);
+            actions.resetForm();
+          } catch (error) {
+            notify(error.message);
+          }
         }}
       >
         <Form className={css.form}>

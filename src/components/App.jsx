@@ -1,6 +1,6 @@
 import './App.css';
 import SearchBar from './SearchBar/SearchBar';
-import { useEffect, useState, ErrorMessage } from 'react';
+import { useEffect, useState } from 'react';
 import ImageGallery from './ImageGallery/ImageGallery';
 import { fetchImg } from '../images-api';
 import toast, { Toaster } from 'react-hot-toast';
@@ -71,7 +71,8 @@ export default function App() {
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
-      {error && <ErrorMessage />}
+      {error && <div>{error}</div>}
+      <Toaster position="bottom-center" />
 
       {images.length > 0 && (
         <ImageGallery images={images} onOpenModal={handleOpenModal} />
@@ -110,8 +111,6 @@ export default function App() {
           content={modalContent}
         />
       )}
-
-      <Toaster position="bottom-center" />
     </div>
   );
 }
